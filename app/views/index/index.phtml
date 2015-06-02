@@ -1,2 +1,79 @@
-<h1>Página inicial</h1>
-<p>Paragrafo da página inicial</p>
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta name="author" content="Mick Hill Barroso de Jesus" />
+        <link rel="shortcut icon" href="img/favicon.png">
+
+        <title>Elder Hill - Contador Regressivo</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="css/bootstrap.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="css/soon.css" rel="stylesheet">
+
+        <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+    </head>
+
+    <body class="nomobile">
+        <section id="header">
+                <div class="container">
+                    <header>
+                        <h1 data-animated="GoIn"><a class="neon" target="_blank" href="mailto:mick.jesus@myldsmail.net?subject=Olá Elder!!!">Escreve pra mim.</a></h1>
+                    </header>
+
+                    <!-- START TIMER -->
+                    <div id="timer" data-animated="FadeIn">
+                        <p id="message"></p>
+                        <div id="days" class="timer_box"></div>
+                        <div id="hours" class="timer_box"></div>
+                        <div id="minutes" class="timer_box"></div>
+                        <div id="seconds" class="timer_box"></div>
+                    </div><!-- END TIMER -->
+
+                    <div class="col-lg-4 col-lg-offset-4 mt centered">
+                        <address>
+                            <h4 title="Clica!"><a class="neon" target="_blank" href="mailto:mick.jesus@myldsmail.net?subject=Olá Elder!!!">mick.jesus@myldsmail.net</a></h4>
+                            <p>ou</p>
+                            <h4>Rua Duque de Caxias, 645 [Fundos],
+                            Centro - Campinas - São Paulo
+                            CEP: 13015-310</h4>
+                        </address>
+                    </div>
+                </div>
+
+
+
+                <!-- LAYER OVER THE SLIDER TO MAKE THE WHITE TEXTE READABLE -->
+                <div id="layer"></div><!-- END LAYER -->
+
+                <!-- START SLIDER -->
+                <div id="slider" class="rev_slider">
+                    <ul>
+<?php
+    if ($this->banners):
+        foreach($this->banners as $imagem):
+?>
+                        <li data-transition="slideleft" data-slotamount="1" data-thumb="<?php echo $imagem;?>">
+                            <img src="<?php echo $imagem;?>">
+                        </li>
+<?php
+        endforeach;
+    endif;
+?>
+                    </ul>
+                </div><!-- END SLIDER -->
+        </section>
+
+        <script src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/modernizr.custom.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/soon/plugins.js"></script>
+        <script src="js/soon/jquery.themepunch.revolution.min.js"></script>
+        <script src="js/soon/custom.js"></script>
+    </body>
+</html>
