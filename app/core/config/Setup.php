@@ -30,8 +30,8 @@ $config['URL_BASE']['URL_DINAMICA']    = true;
 $config['URL_BASE']['ALIAS']           = '';
 $config['URL_BASE']['DOMINIO']         = '';
 
-$config['AUTOLOAD']['helper']          = array('default');
-$config['AUTOLOAD']['class']           = array('Pagina');
+$config['AUTOLOAD']['helper']          = array();
+$config['AUTOLOAD']['class']           = array();
 
 $config['EXTENCOES']['Controllers']    = '';
 $config['EXTENCOES']['Views']          = '';

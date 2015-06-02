@@ -31,7 +31,7 @@ abstract class Site
     {
         global $config;
 
-        $this->site_config          = $config; unset($config);
+        $this->site_config          = $config;
         $this->site_url             = $this->site_url();
         $this->site_url_index       = $this->site_config['EXIBIR_INDEX_URL'];
         $this->site_uri             = $this->site_config['URI'];

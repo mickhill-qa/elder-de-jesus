@@ -8,6 +8,8 @@
  *
  */
 
+
+
 // Definições de dados padrões do framework.
 $config['TITULO_APLICACAO']            = default_valida_valor(@$config['TITULO_APLICACAO'],           'Simple MVC');
 $config['SLUG_SESSION']                = default_valida_valor(@$config['SLUG_SESSION'],               'simple-mvc');
@@ -33,6 +35,15 @@ $config['CAMINHOS']['CONTROLLERS'] = $config['CAMINHOS']['APLICACAO'] . "control
 
 
 
+// Definição de varaveis para MVC.
+$config['URI']  = isset($_GET['uri']) ? $_GET['uri'] : $config['PAGINA_INICIAL'];
+$config['URI'] .= '/';
+$config['URI']  = explode("/", $config['URI']);
+$config['URI']  = array_filter($config['URI']);
+$config['MVC']['controller']     = default_trata_uri($config['URI'][0] . 'Controller');
+$config['MVC']['method']         = default_trata_uri($config['URI'][1] = ($config['URI'][1] == null ? 'index' : $config['URI'][1]));
+
+
 
 // Definição de URL Dinámica.
 if ($config['URL_BASE']['URL_DINAMICA'] == true)
@@ -53,8 +64,6 @@ else
 
     $config['URL_BASE'] = 'http://' . $config['URL_BASE']['DOMINIO'] . '/';
 }
-
-
 
 
 
