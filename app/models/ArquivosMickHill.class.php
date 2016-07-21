@@ -37,7 +37,7 @@ class ArquivosMickHill
             $Pasta->close();
             
             if($conteudo)
-                rasort($conteudo);
+                rsort($conteudo);
             return $conteudo;
         }
     }
