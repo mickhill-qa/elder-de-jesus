@@ -56,7 +56,12 @@
                     <ul>
 <?php
     if ($this->banners):
+    
+        $i = 1;
+
         foreach($this->banners as $imagem):
+    
+            if($i >  3) break; $i++;
 ?>
                         <li data-transition="slideleft" data-slotamount="1" data-thumb="<?php echo $imagem;?>">
                             <img src="<?php echo $imagem;?>">
