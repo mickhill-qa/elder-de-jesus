@@ -24,7 +24,7 @@ COMMING SOON PAGE
             hours.html('<h1>0</h1><p>Hour</p>');
             minutes.html('<h1>0</h1><p>Minute</p>');
             seconds.html('<h1>0</h1><p>Second</p>');
-            message.html('Elder Hill já está em casa desde junho de 2017.');
+            message.html('Elder De Jesus já está em casa desde junho de 2017.');
         }
         else{
             var s = -now.getTimezoneOffset()*60 + (launch.getTime() - now.getTime())/1000;
@@ -43,7 +43,7 @@ COMMING SOON PAGE
             seconds.html('<h1>'+s+'</h1><p>Second'+(s>1?'s':''),'</p>');
             setTimeout(setDate, 1000);
 
-            message.html('Previsão para a volta de Elder Hill é de junho de 2017.');
+            message.html('Previsão para a volta de Elder De Jesus é de junho de 2017.');
         }
     }
 })(jQuery);
