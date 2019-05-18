@@ -54,22 +54,18 @@
                 <!-- START SLIDER -->
                 <div id="slider" class="rev_slider">
                     <ul>
-<?php
-    if ($this->banners):
-    
-        $i = 1;
-
-        foreach($this->banners as $imagem):
-    
-            if($i >  3) break; $i++;
-?>
-                        <li data-transition="slideleft" data-slotamount="1" data-thumb="<?php echo $imagem;?>">
-                            <img src="<?php echo $imagem;?>">
+                        <li data-transition="slideleft" data-slotamount="1" data-thumb="/uploads/banners/1.jpg">
+                            <img src="uploads/banners/1.jpg">
                         </li>
-<?php
-        endforeach;
-    endif;
-?>
+                        <li data-transition="slideleft" data-slotamount="1" data-thumb="uploads/banners/2.jpg">
+                            <img src="uploads/banners/2.jpg">
+                        </li>
+                        <li data-transition="slideleft" data-slotamount="1" data-thumb="uploads/banners/3.jpg">
+                            <img src="uploads/banners/3.jpg">
+                        </li>
+                        <li data-transition="slideleft" data-slotamount="1" data-thumb="uploads/banners/4.jpg">
+                            <img src="uploads/banners/4.jpg">
+                        </li>
                     </ul>
                 </div><!-- END SLIDER -->
         </section>
