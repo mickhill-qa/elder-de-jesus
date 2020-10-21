@@ -6,7 +6,7 @@ COMMING SOON PAGE
     * Set your date here  (YEAR, MONTH (0 for January/11 for December), DAY, HOUR, MINUTE, SECOND)
     * according to the GMT+0 Timezone
     **/
-    var launch = new Date(2017, 05, 3, 15, 20);
+    var launch = new Date(2017, 04, 18, 00, 00, 00);
     /**
     * The script
     **/
@@ -15,18 +15,39 @@ COMMING SOON PAGE
     var hours = $('#hours');
     var minutes = $('#minutes');
     var seconds = $('#seconds');
+
+    /**
+    * The msg
+    **/
+    var month = new Array("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
+    var dateMsg = launch.getDate()+' de '+month[launch.getMonth()]+' de '+launch.getUTCFullYear();
+
     
     setDate();
     function setDate(){
         var now = new Date();
-        if( launch < now ){
-            days.html('<h1>0</H1><p>Day</p>');
-            hours.html('<h1>0</h1><p>Hour</p>');
-            minutes.html('<h1>0</h1><p>Minute</p>');
-            seconds.html('<h1>0</h1><p>Second</p>');
-            message.html('Elder De Jesus já está em casa desde junho de 2017.');
+        if( launch < now ){ 
+            // Cronometro
+            var s = -launch.getTimezoneOffset()*60 + (now.getTime() - launch.getTime())/1000;
+            var d = Math.floor(s/86400);
+            days.html('<h1>'+d+'</h1><p>Day'+(d>1?'s':''),'</p>');
+            s -= d*86400;
+
+            var h = Math.floor(s/3600);
+            hours.html('<h1>'+h+'</h1><p>Hour'+(h>1?'s':''),'</p>');
+            s -= h*3600;
+
+            var m = Math.floor(s/60);
+            minutes.html('<h1>'+m+'</h1><p>Minute'+(m>1?'s':''),'</p>');
+
+            s = Math.floor(s-m*60);
+            seconds.html('<h1>'+s+'</h1><p>Second'+(s>1?'s':''),'</p>');
+            setTimeout(setDate, 1000);
+
+            message.html('Finalizei minha missão no dia '+dateMsg+'.<br />Já fazem:');
         }
-        else{
+        else{ 
+            // Contador Regressivo
             var s = -now.getTimezoneOffset()*60 + (launch.getTime() - now.getTime())/1000;
             var d = Math.floor(s/86400);
             days.html('<h1>'+d+'</h1><p>Day'+(d>1?'s':''),'</p>');
@@ -43,7 +64,7 @@ COMMING SOON PAGE
             seconds.html('<h1>'+s+'</h1><p>Second'+(s>1?'s':''),'</p>');
             setTimeout(setDate, 1000);
 
-            message.html('Previsão para a volta de Elder De Jesus é de junho de 2017.');
+            message.html('Previsão para a volta para casa é de '+dateMsg+'.<br />Faltam:');
         }
     }
 })(jQuery);
