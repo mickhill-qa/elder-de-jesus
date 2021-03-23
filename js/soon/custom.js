@@ -6,11 +6,12 @@ COMMING SOON PAGE
     * Set your date here  (YEAR, MONTH (0 for January/11 for December), DAY, HOUR, MINUTE, SECOND)
     * according to the GMT+0 Timezone
     **/
-    var launch = new Date(2017, 04, 18, 00, 00, 00);
+    var launch = new Date('2017/05/18 16:30:00');
     /**
     * The script
     **/
     var message = $('#message');
+    var years = $('#years');
     var days = $('#days');
     var hours = $('#hours');
     var minutes = $('#minutes');
@@ -28,8 +29,12 @@ COMMING SOON PAGE
         var now = new Date();
         if( launch < now ){ 
             // Cronometro
+            var ano_atual       = now.getFullYear();
+            var ano_informado   = launch.getUTCFullYear();
+            var y = ano_atual - ano_informado;
             var s = -launch.getTimezoneOffset()*60 + (now.getTime() - launch.getTime())/1000;
             var d = Math.floor(s/86400);
+            years.html('<h1>'+y+'</h1><p>Ano'+(y>1?'s':''),'</p>');
             days.html('<h1>'+d+'</h1><p>Dia'+(d>1?'s':''),'</p>');
             s -= d*86400;
 
