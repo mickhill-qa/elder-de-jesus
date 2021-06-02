@@ -31,7 +31,7 @@ COMMING SOON PAGE
         var d2 = dateInit.getDate();
         if (d1 < d2) {
             m1--;
-            d1 += DaysInMonth(y2, m2);
+            d1 += new Date(y2,m2,0).getDate();
         }
 
         if (m1 < m2) {
@@ -69,7 +69,7 @@ COMMING SOON PAGE
             s -= d*86400;
 
             var h = Math.floor(s/3600);
-            hours.html('<h1>'+h+'</h1><p>Hora'+(h>1?'s':''),'</p>');
+            hours.html('<h1>'+(h-21)+'</h1><p>Hora'+(h>1?'s':''),'</p>');
             s -= h*3600;
 
             var m = Math.floor(s/60);
