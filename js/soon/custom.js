@@ -7,21 +7,48 @@ COMMING SOON PAGE
     * according to the GMT+0 Timezone
     **/
     var launch = new Date('2017/05/18 16:30:00');
+
     /**
     * The script
     **/
     var message = $('#message');
     var years = $('#years');
+    var months = $('#months');
     var days = $('#days');
     var hours = $('#hours');
     var minutes = $('#minutes');
     var seconds = $('#seconds');
 
     /**
+    * Diferenca entre datas
+    **/
+    function dateDiff(dateInit, dateEnd) {
+        var y1 = dateEnd.getFullYear();
+        var m1 = dateEnd.getMonth();
+        var d1 = dateEnd.getDate();
+        var y2 = dateInit.getFullYear()
+        var m2 = dateInit.getMonth()
+        var d2 = dateInit.getDate();
+
+        console.log(d1);
+        // if (d1 < d2) {
+        //     m1--;
+        //     d1 += DaysInMonth(y2, m2);
+        // }
+
+        // if (m1 < m2) {
+        //     y1--;
+        //     m1 += 12;
+        // }
+
+        // return [y1 - y2, m1 - m2, d1 - d2];
+    }
+
+    /**
     * The msg
     **/
     var month = new Array("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
-    var dateMsg = launch.getDate()+' de '+month[launch.getMonth()]+' de '+launch.getUTCFullYear();
+    var dateMsg = launch.getDate()+' de '+month[launch.getMonth()]+' de '+launch.getUTCFullYear()+' as '+launch.getHours()+'h'+(launch.getHours()>1?'s':'');
 
     
     setDate();
@@ -34,6 +61,12 @@ COMMING SOON PAGE
             var y = ano_atual - ano_informado;
             var s = -launch.getTimezoneOffset()*60 + (now.getTime() - launch.getTime())/1000;
             var d = Math.floor(s/86400);
+                        
+            var dife = dateDiff(launch, now);
+            // var d_html = dife[2];
+            // var m = dife[1];
+            // var y = dife[0];
+                   
             years.html('<h1>'+y+'</h1><p>Ano'+(y>1?'s':''),'</p>');
             days.html('<h1>'+d+'</h1><p>Dia'+(d>1?'s':''),'</p>');
             s -= d*86400;
